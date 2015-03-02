@@ -13,6 +13,11 @@ AutoCommandSystem::AutoCommandSystem()
 	//      AddSequential(new Command2());
 	// these will run in order.
 
+	//Move Forward 4.0
+	AddSequential(new AutoMove(4.0));
 
+	//Move Turn 90.0
+	AddSequential(new AutoTurn(180.0));
 
+	AddSequential(new AutoMove(-4.0));
 }

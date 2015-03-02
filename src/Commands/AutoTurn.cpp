@@ -2,28 +2,26 @@
 
 AutoTurn::AutoTurn(float degrees)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+
 	Requires(driveTrain);
-	//revolution = degrees/360.0;
+
 	pid = new PIDController(1.0, 0.0, 0.0, new AutoTurnSource(), new AutoTurnOutput());
 	pid->SetPercentTolerance(.02);
-	pid->SetOutputRange(-0.75, 0.75);
+	pid->SetOutputRange(-0.55, 0.55);
 	pid->SetContinuous(false);
-	pid->SetSetpoint((degrees/360.0));
+	pid->SetSetpoint(((degrees/360.0)*4.5));
 }
 
 
-// Called just before this Command runs the first time
+
 void AutoTurn::Initialize()
 {
-	//driveTrain->AutoDrive(revolution*26.5, -revolution*26.5);
+
 	driveTrain->leftEncoder->Reset();
 	driveTrain->rightEncoder->Reset();
 	pid->Reset();
 	pid->Enable();
-		//driveTrain->AutoDrive(10.0, 10.0);
-		//
+
 	printf("AutoMove::Init()\n");
 
 }

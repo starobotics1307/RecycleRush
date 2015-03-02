@@ -5,6 +5,8 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/DriveLift.h"
+#include "Subsystems/ForkLeft.h"
+#include "Subsystems/ForkRight.h"
 #include "Subsystems/Claw.h"
 #include "Subsystems/leftPid.h"
 #include "Subsystems/rightPid.h"
@@ -27,6 +29,8 @@ public:
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *driveTrain;
 	static DriveLift *driveLift;
+	static ForkLeft *leftFork;
+	static ForkRight *rightFork;
 	static OI *oi;
 	static Claw* claw;
     static leftPid* lPid;

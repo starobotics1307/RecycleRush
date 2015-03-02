@@ -1,43 +1,40 @@
-#include "Drive.h"
+#include "ForkLiftLeft.h"
 
-Drive::Drive()
+ForkLiftLeft::ForkLiftLeft()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
+	Requires(leftFork);
 
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void ForkLiftLeft::Initialize()
 {
-
+leftFork->SetLeftFork(DELTA);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void ForkLiftLeft::Execute()
 {
-	//gets input from Joysticks in OI and passes them to the 4 talons in DriveTrain.cpp
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool ForkLiftLeft::IsFinished()
 {
-
-	return false;
+	return leftFork->OnTarget();
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void ForkLiftLeft::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void ForkLiftLeft::Interrupted()
 {
 
 }

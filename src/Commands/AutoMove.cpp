@@ -9,7 +9,7 @@ pid = new PIDController(1.0, 0.0, 0.0, new AutoMoveSource(), new AutoMoveOutput(
 pid->SetPercentTolerance(0.2);
 pid->SetOutputRange(-0.75, 0.75);
 pid->SetContinuous(false);
-pid->SetSetpoint(distance);
+pid->SetSetpoint((distance*4.5));
 }
 
 // Called just before this Command runs the first time
@@ -62,6 +62,6 @@ return (AutoMove::driveTrain->rightEncoder->PIDGet() + AutoMove::driveTrain->lef
 }
 AutoMoveOutput::~AutoMoveOutput(){}
 void AutoMoveOutput::PIDWrite(float d){
-	printf("PidWrite:D:%f", d);
-	AutoMove::driveTrain->AutoDrive(d, d);
+	printf("PidWrite:D:%f", -d);
+	AutoMove::driveTrain->AutoDrive(-d, -d);
 }

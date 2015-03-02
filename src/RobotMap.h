@@ -44,7 +44,10 @@ const static double AUTODELTA =(TOP/4)*2;
 const static double BOT = 0;
 const static double END = -5;
 
-//-4.3125
+
+const int JAGLEFT = 4;
+
+
 const int SOL_IN_CHANNEL_FOREWARD = 0;
 const int SOL_IN_CHANNEL_REVERSE = 1;
 const int SOL_OUT_CHANNEL_FOREWARD  = 2;

@@ -7,7 +7,7 @@
 class AutoTurn: public CommandBase
 {
 private:
-	//float revolution;
+
 	PIDController* pid;
 public:
 	AutoTurn(float deg);

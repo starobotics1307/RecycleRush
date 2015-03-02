@@ -1,0 +1,21 @@
+Update 1.0.3:
+Added PidSubsystems and Commands for individual fork movement capability.
+These additions are ready to be added to the IO or AutoCommandSystem for easy use
+
+Examples:
+
+(new ForkLiftLeft)//new instance of command to lift left fork 
+
+(new ForkLiftRight)//new instance of command to lift right fork
+
+(new ForkLiftLeftReverse)//new instance of command to lower left fork
+
+(new ForkLiftRightReverse)//new instance of command to lower right fork 
+
+
+!//CURRENTLY WORKING ON:
+
+Add auto counterparts to be able to function in autonomous 
+
+Figure out if pneumatics needs to be reconfigured
+ 
