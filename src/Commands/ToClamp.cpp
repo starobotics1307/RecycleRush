@@ -1,42 +1,39 @@
-#include "Drive.h"
+#include "ToClamp.h"
 
-Drive::Drive()
+ToClamp::ToClamp()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
-
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void ToClamp::Initialize()
 {
 
+	claw -> Clamp();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void ToClamp::Execute()
 {
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool ToClamp::IsFinished()
 {
-
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void ToClamp::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void ToClamp::Interrupted()
 {
 
 }

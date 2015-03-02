@@ -1,42 +1,40 @@
-#include "Drive.h"
+#include "ToNarrow.h"
 
-Drive::Drive()
+ToNarrow::ToNarrow()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
-
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void ToNarrow::Initialize()
 {
-
+	claw -> Wide();
+		Wait(0.5);
+	claw -> Narrow();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void ToNarrow::Execute()
 {
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool ToNarrow::IsFinished()
 {
-
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void ToNarrow::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void ToNarrow::Interrupted()
 {
 
 }

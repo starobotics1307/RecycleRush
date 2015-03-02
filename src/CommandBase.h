@@ -4,6 +4,12 @@
 #include <string>
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/DriveLift.h"
+#include "Subsystems/Claw.h"
+#include "Subsystems/leftPid.h"
+#include "Subsystems/rightPid.h"
+
+
 #include "OI.h"
 #include "WPILib.h"
 
@@ -20,7 +26,14 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static DriveTrain *driveTrain;
+	static DriveLift *driveLift;
 	static OI *oi;
+	static Claw* claw;
+    static leftPid* lPid;
+    static rightPid* rPid;
+
+
+
 };
 
 #endif

@@ -1,42 +1,38 @@
-#include "Drive.h"
+#include "ToWide.h"
 
-Drive::Drive()
+ToWide::ToWide()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
-
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void ToWide::Initialize()
 {
-
+	claw -> Wide();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void ToWide::Execute()
 {
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool ToWide::IsFinished()
 {
-
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void ToWide::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void ToWide::Interrupted()
 {
 
 }

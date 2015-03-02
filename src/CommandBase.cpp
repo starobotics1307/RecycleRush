@@ -1,10 +1,15 @@
 #include "CommandBase.h"
-#include "Subsystems/DriveTrain.h"
 #include "Commands/Scheduler.h"
 
 // Initialize a single static instance of all of your subsystems to NULL
 DriveTrain* CommandBase::driveTrain = NULL;
+DriveLift* CommandBase::driveLift = NULL;
 OI* CommandBase::oi = NULL;
+Claw* CommandBase::claw = NULL;
+rightPid* CommandBase::rPid = NULL;
+leftPid* CommandBase::lPid = NULL;
+
+
 
 CommandBase::CommandBase(char const *name) :
 		Command(name)
@@ -22,5 +27,12 @@ void CommandBase::init()
 	// Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 	driveTrain = new DriveTrain();
+    driveLift = new DriveLift();
 	oi = new OI();
+	claw = new Claw();
+    rPid = new rightPid();
+    lPid = new leftPid();
+
+
+
 }

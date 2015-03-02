@@ -1,42 +1,39 @@
-#include "Drive.h"
+#include "AutoLiftReverse.h"
 
-Drive::Drive()
+AutoLiftReverse::AutoLiftReverse()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
-
+	Requires(driveLift);
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void AutoLiftReverse::Initialize()
 {
-
+driveLift->SetHeight(-DELTA);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void AutoLiftReverse::Execute()
 {
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool AutoLiftReverse::IsFinished()
 {
-
-	return false;
+	return driveLift->OnTarget();
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void AutoLiftReverse::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void AutoLiftReverse::Interrupted()
 {
 
 }
