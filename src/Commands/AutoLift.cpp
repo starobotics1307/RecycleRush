@@ -1,43 +1,39 @@
-#include "Drive.h"
+#include "AutoLift.h"
 
-Drive::Drive()
+AutoLift::AutoLift()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveTrain);
-
+	Requires(driveLift);
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void AutoLift::Initialize()
 {
-
+driveLift->SetHeight(DELTA);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void AutoLift::Execute()
 {
-	//gets input from Joysticks in OI and passes them to the 4 talons in DriveTrain.cpp
-driveTrain->TankDrive(oi->getlstick(), oi->getrstick());
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool AutoLift::IsFinished()
 {
-
-	return false;
+	return driveLift->OnTarget();
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void AutoLift::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void AutoLift::Interrupted()
 {
 
 }
